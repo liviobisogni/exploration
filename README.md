@@ -44,8 +44,16 @@ $ roslaunch exploration exploration.launch
 5. Finally, they go back to their initial positions.
 6. Meanwhile, various types of information are printed on the terminal. Wait until the exploration node is shut down. Yet feel free to press `ESC` to exit the program anytime.
 
+## Some _turtlish_ screenshots
+
+* Initial positions:
+
 ![](img/e1.png)
 
+* Turtles are movin':
+
 ![](img/e2.png)
+
+* Back 2 their initial positions (after all the other positions have been finally explored by each turtle):
 
 ![](img/e3.png)
