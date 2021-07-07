@@ -143,7 +143,6 @@ double computeAngularError(turtlesim::Pose current_pose,
 
 /*‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
     COMPUTELINEARERROR:     Get linear error from the turtles perspective.
-                            Error only along turtle X axis
 _____________________________________________________________________________*/
 
 double computeLinearError(turtlesim::Pose current_pose,
@@ -154,9 +153,7 @@ double computeLinearError(turtlesim::Pose current_pose,
     double E_y     = goal_pose.y - current_pose.y;  // Error along Y component
     double E_theta = computeAngularError(
         current_pose, goal_pose);  // Compute angle between vectors
-
-    // Projection error onto turtle X axis
-    double E_thetax = hypot(E_x, E_y) * cos(E_theta);
+    double E_thetax = hypot(E_x, E_y);
 
     return E_thetax;
 }
