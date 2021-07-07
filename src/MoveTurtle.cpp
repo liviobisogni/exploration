@@ -151,8 +151,8 @@ int main(int argc, char **argv)
     ROS_INFO("Starting to move forward");
 
     while (ros::ok()) {
-        pub.publish(msg);
         ros::spinOnce();
+        pub.publish(msg);
         rate.sleep();
     }
 
