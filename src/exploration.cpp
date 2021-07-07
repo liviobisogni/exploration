@@ -362,6 +362,8 @@ int main(int argc, char **argv)
 
     // Execute until node and channel are ok, and esc key is not pressed
     while (ros::ok() && nh.ok() && c != KEY_ESC) {
+        ros::spinOnce();
+
         if (stop == false) {
             moveTurtles(turtleVel_pub);
         } else {
@@ -383,7 +385,6 @@ int main(int argc, char **argv)
 
         c = getch();  // read character (non-blocking)
 
-        ros::spinOnce();
         loop_rate.sleep();
     }
 
