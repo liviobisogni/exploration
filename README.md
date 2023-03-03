@@ -13,26 +13,26 @@ Let’s get to turtle each other!
 1. Move this folder (`exploration`) in `~/catkin_ws/src` (or wherever thy ROS workspace is).
 2. Launch a terminal window and navigate to the aforementioned ROS workspace, e.g.,
 
-	```
-	$ cd ~/catkin_ws/
+	```bash
+	cd ~/catkin_ws/
 	```
 3. Build the package:
 
-	```
-	$ catkin_make
+	```bash
+	catkin_make
 	```
 
 ## How to execute
 Open the terminal and type, e.g.,
 
-```
-$ roslaunch exploration move_turtle.launch
+```bash
+roslaunch exploration move_turtle.launch
 ```
 
 Launch another terminal window and type:
 
-```
-$ roslaunch exploration exploration.launch
+```bash
+roslaunch exploration exploration.launch
 ``` 
 
 ## How to use
