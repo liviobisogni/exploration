@@ -1,59 +1,83 @@
-# __Exploration__
+# Exploration
 
-### _Author_: Livio Bisogni
-###### __&copy; 2021 Turtley & Turtles Ltd.__
-___
-Let’s get to turtle each other!
+A ROS package that enables multiple robots to communicate and move toward each other's positions.
 
-## Prerequisites
+<p align="center">
+	<a href="#prerequisite">Prerequisite</a>
+	<span> • </span>
+	<a href="#compile">Compile</a>
+	<span> • </span>
+	<a href="#execute">Execute</a>
+	<span> • </span>
+	<a href="#use">Use</a>
+	<span> • </span>
+	<a href="#screenshots">Screenshots</a>
+</p>
 
-* [ROS](http://wiki.ros.org/ROS/Installation) - An open-source, meta-operating system for your robots. Repository tested only under ROS Kinetic, though.
+## <a id="prerequisite"></a>Prerequisite
 
-## How to compile
-1. Move this folder (`exploration`) in `~/catkin_ws/src` (or wherever thy ROS workspace is).
-2. Launch a terminal window and navigate to the aforementioned ROS workspace, e.g.,
+* [ROS](http://wiki.ros.org/ROS/Installation) - An open-source, meta-operating system for your robots. The repository has been tested using ROS Kinetic.
+
+
+## <a id="compile"></a>How to Compile
+1. Move this package folder (`exploration`) to the `src` directory of your ROS workspace, for example `~/catkin_ws/src/`.
+
+2. Open a terminal window and navigate to your ROS workspace directory, e.g.:
 
 	```bash
 	cd ~/catkin_ws/
 	```
-3. Build the package:
+3. Build the package using the `catkin_make` command:
 
 	```bash
 	catkin_make
 	```
+This will compile the package and generate the necessary files for running the ROS nodes.
 
-## How to execute
-Open the terminal and type, e.g.,
 
-```bash
-roslaunch exploration move_turtle.launch
-```
+## <a id="execute"></a>How to Execute
+1. Open a terminal window.
 
-Launch another terminal window and type:
+2. Navigate to your ROS workspace directory.
 
-```bash
-roslaunch exploration exploration.launch
-``` 
+3. Launch the package using the following command:
 
-## How to use
+	```bash
+	roslaunch exploration move_turtle.launch
+	```
+4. Launch another terminal window.
+5. Navigate to your ROS workspace directory.
+6. Launch the package using the following command:
 
-1. `NUM_TURTLES` turtles are given (initial positions defined in `move_turtle.launch`, line 14 and following; the integers `NUM_TURTLES` and `ROBOT_NUMBER`, defined in `exploration.cpp` and in `MoveTurtle.cpp`, respectively, should be adjusted accordingly).
-2. Firstly, every turtle communicates its position.
-3. Then, each one moves towards the position of the consecutive turtle.
-4. Point 3 is repeated till each turtle has visited all other turtles' positions.
-5. Finally, they go back to their initial positions.
-6. Meanwhile, various types of information are printed on the terminal. Wait until the exploration node is shut down. Yet feel free to press `ESC` to exit the program anytime.
+	```bash
+	roslaunch exploration exploration.launch
+	``` 
+This will launch the ROS nodes required to run the package.
 
-## Some _turtlish_ screenshots
+
+## <a id="use"></a>How to Use
+
+1. Adjust the `x`, `y`, and `theta` variables in `consensus.launch` (starting from line 13) to set the initial positions of the additional robots (the first robot is spawned at the center of the workspace). Ensure that `NUM_TURTLES` in `consensus.cpp` and `ROBOT_NUMBER` in `moveTurtle.cpp` are updated to reflect the total number of robots, including the first robot and any additional robots.
+2. Each robot will communicate its position with the others.
+3. Then, they will start moving toward the positions of the consecutive robot.
+4. Step 3 will be repeated until each robot has visited all other robots' positions.
+5. Finally, they will return to their initial positions.
+6. Throughout the process, various types of information will be printed on the terminal. Wait until the exploration node is shut down or press `ESC` to exit the program at any time.
+
+
+## <a id="screenshots"></a>Screenshots
 
 * Initial positions:
+<p align="center" width="100%">
+    <img width="61.8%" src="img/e1.png"> 
+</p>
 
-![](img/e1.png)
+* Turtles in motion:
+<p align="center" width="100%">
+    <img width="61.8%" src="img/e2.png"> 
+</p>
 
-* Turtles are movin':
-
-![](img/e2.png)
-
-* Back 2 their initial positions (after all the other positions have been finally explored by each turtle):
-
-![](img/e3.png)
+* Returning to their initial positions (after exploring all other positions):
+<p align="center" width="100%">
+    <img width="61.8%" src="img/e3.png"> 
+</p>
